@@ -6,8 +6,7 @@ public class Snowball : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Ground"))
         {
-            print("destroy");
-            Destroy(gameObject, 2f);
+            Destroy(gameObject, .1f);
         }
     }
 }
