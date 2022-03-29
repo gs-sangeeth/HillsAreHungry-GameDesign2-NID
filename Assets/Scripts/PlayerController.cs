@@ -7,10 +7,12 @@ public class PlayerController : MonoBehaviour
     private float input;
     private float mobileInput;
     private Rigidbody2D rb;
+    private BoxCollider2D playerHead;
 
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        playerHead = gameObject.GetComponent<BoxCollider2D>();
     }
 
     private void Update()
@@ -42,7 +44,7 @@ public class PlayerController : MonoBehaviour
 
         // Move
         input = Input.GetAxisRaw("Horizontal");
-        input = mobileInput;
+        //input = mobileInput;
         rb.AddForce(new Vector2(input * speed * Time.deltaTime * 10f, 0));
 
         // Flip
@@ -54,6 +56,11 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = Vector3.one;
         }
+
+        //if (playerHead.OverlapCollider != null)
+        //{
+
+        //}
 
     }
 
