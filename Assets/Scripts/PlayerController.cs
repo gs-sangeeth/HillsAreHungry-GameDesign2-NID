@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 10f;
 
     private float input;
+    private float mobileInput;
     private Rigidbody2D rb;
 
     private void Start()
@@ -14,8 +15,34 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        // Get Mobile Input
+        if (Input.GetMouseButton(0))
+        {
+            Collider2D colliderHit = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            if (colliderHit != null)
+            {
+                if (colliderHit.gameObject.CompareTag("LeftMoveButton"))
+                {
+                    mobileInput = -1;
+                }
+                else if (colliderHit.gameObject.CompareTag("RightMoveButton"))
+                {
+                    mobileInput = 1;
+                }
+                else
+                {
+                    mobileInput = 0;
+                }
+            }
+        }
+        else
+        {
+            mobileInput = 0;
+        }
+
         // Move
         input = Input.GetAxisRaw("Horizontal");
+        input = mobileInput;
         rb.AddForce(new Vector2(input * speed * Time.deltaTime * 10f, 0));
 
         // Flip
@@ -29,4 +56,6 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+
 }

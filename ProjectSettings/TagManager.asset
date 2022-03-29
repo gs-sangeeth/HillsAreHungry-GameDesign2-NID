@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - LeftMoveButton
+  - RightMoveButton
   layers:
   - Default
   - TransparentFX
@@ -53,4 +55,7 @@ TagManager:
     locked: 0
   - name: Items
     uniqueID: 3833277135
+    locked: 0
+  - name: Buttons
+    uniqueID: 682234819
     locked: 0
