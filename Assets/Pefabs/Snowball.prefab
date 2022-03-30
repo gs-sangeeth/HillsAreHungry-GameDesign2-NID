@@ -312,6 +312,9 @@ MonoBehaviour:
   snowBallLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  playerLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &7376526970511331196
 GameObject:
   m_ObjectHideFlags: 0
