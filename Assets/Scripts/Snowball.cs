@@ -12,6 +12,9 @@ public class Snowball : MonoBehaviour
     public Transform rayOriginBottomLeft;
     public Transform rayOriginBottomRight;
 
+    [SerializeField]
+    LayerMask snowBallLayerMask;
+
     private void Start()
     {
         coll = gameObject.GetComponent<PolygonCollider2D>();
@@ -20,7 +23,7 @@ public class Snowball : MonoBehaviour
     private void Update()
     {
         //CheckBottom();
-        CheckTop();
+        CheckTopTest();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -183,12 +186,12 @@ public class Snowball : MonoBehaviour
         bool rightRay = false;
 
 
-        RaycastHit2D hitLeft = Physics2D.Raycast(rayOriginTopLeft.position, Vector2.up);
+        RaycastHit2D hitLeft = Physics2D.Raycast(rayOriginTopLeft.position, Vector2.up,.2f, snowBallLayerMask);
         if (hitLeft.collider != null)
         {
-            if (hitLeft.collider.gameObject.CompareTag("Snow") && hitLeft.collider != coll)
+            if (hitLeft.collider.gameObject.CompareTag("Snow"))
             {
-                if (hitLeft.distance <= .1f)
+                if (hitLeft.distance <= .2f)
                 {
                     leftRay = true;
                 }
@@ -199,10 +202,10 @@ public class Snowball : MonoBehaviour
             }
         }
 
-        RaycastHit2D hitRight = Physics2D.Raycast(rayOriginTopRight.position, Vector2.up);
+        RaycastHit2D hitRight = Physics2D.Raycast(rayOriginTopRight.position, Vector2.up,.2f, snowBallLayerMask);
         if (hitRight.collider != null)
         {
-            if (hitRight.collider.gameObject.CompareTag("Snow") && hitRight.collider != coll)
+            if (hitRight.collider.gameObject.CompareTag("Snow"))
             {
                 if (hitRight.distance <= .1f)
                 {
@@ -234,22 +237,22 @@ public class Snowball : MonoBehaviour
         //}
 
 
-        if (leftRay)
+        if (hitLeft.collider != null)
         {
-            Debug.DrawRay(rayOriginTopLeft.position, Vector2.up, Color.green);
+            Debug.DrawRay(rayOriginTopLeft.position, Vector2.up * .2f, Color.green);
         }
         else
         {
-            Debug.DrawRay(rayOriginTopLeft.position, Vector2.up, Color.red);
+            Debug.DrawRay(rayOriginTopLeft.position, Vector2.up * .2f, Color.red);
         }
 
-        if (rightRay)
+        if (hitRight.collider != null)
         {
-            Debug.DrawRay(rayOriginTopRight.position, Vector2.up, Color.green);
+            Debug.DrawRay(rayOriginTopRight.position, Vector2.up * .2f, Color.green);
         }
         else
         {
-            Debug.DrawRay(rayOriginTopRight.position, Vector2.up, Color.red);
+            Debug.DrawRay(rayOriginTopRight.position, Vector2.up * .2f, Color.red);
         }
 
     }
