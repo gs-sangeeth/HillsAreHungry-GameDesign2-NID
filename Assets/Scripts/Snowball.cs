@@ -36,7 +36,7 @@ public class Snowball : MonoBehaviour
         }
     }
 
-    public void CheckTop()
+    public void CheckTop(bool destroy = false)
     {
         bool leftRay = false;
         bool rightRay = false;
@@ -72,17 +72,23 @@ public class Snowball : MonoBehaviour
         {
             if (leftRay)
             {
-                SnowBallCounter.instance.snowBallCount++;
-                Debug.Log(SnowBallCounter.instance.snowBallCount);
+                GameManager.instance.snowBallCount++;
 
-                hitLeft.collider.gameObject.GetComponent<Snowball>().CheckTop();
+                hitLeft.collider.gameObject.GetComponent<Snowball>().CheckTop(destroy);
+                if (destroy)
+                {
+                    Destroy(hitLeft.collider.gameObject);
+                }
             }
             else if (rightRay)
             {
-                SnowBallCounter.instance.snowBallCount++;
-                Debug.Log(SnowBallCounter.instance.snowBallCount);
+                GameManager.instance.snowBallCount++;
 
-                hitRight.collider.gameObject.GetComponent<Snowball>().CheckTop();
+                hitRight.collider.gameObject.GetComponent<Snowball>().CheckTop(destroy);
+                if (destroy)
+                {
+                    Destroy(hitRight.collider.gameObject);
+                }
             }
         }
 
@@ -113,7 +119,7 @@ public class Snowball : MonoBehaviour
         bool rightRay = false;
 
 
-        RaycastHit2D hitLeft = Physics2D.Raycast(rayOriginBottomLeft.position, Vector2.down,.2f, playerLayerMask);
+        RaycastHit2D hitLeft = Physics2D.Raycast(rayOriginBottomLeft.position, Vector2.down, .2f, playerLayerMask);
         if (hitLeft.collider != null)
         {
             if (hitLeft.normal == Vector2.up)
@@ -126,7 +132,7 @@ public class Snowball : MonoBehaviour
             }
         }
 
-        RaycastHit2D hitRight = Physics2D.Raycast(rayOriginBottomRight.position, Vector2.down,.2f, playerLayerMask);
+        RaycastHit2D hitRight = Physics2D.Raycast(rayOriginBottomRight.position, Vector2.down, .2f, playerLayerMask);
         if (hitRight.collider != null)
         {
             if (hitRight.normal == Vector2.up)
@@ -141,8 +147,8 @@ public class Snowball : MonoBehaviour
 
         if (leftRay || rightRay)
         {
-            SnowBallCounter.instance.snowBallCount = 1;
-            Debug.Log(SnowBallCounter.instance.snowBallCount);
+            GameManager.instance.snowBallCount = 1;
+            GameManager.instance.bottomSnowBall = gameObject;
 
             CheckTop();
         }
@@ -173,7 +179,7 @@ public class Snowball : MonoBehaviour
         bool rightRay = false;
 
 
-        RaycastHit2D hitLeft = Physics2D.Raycast(rayOriginTopLeft.position, Vector2.up,.2f, snowBallLayerMask);
+        RaycastHit2D hitLeft = Physics2D.Raycast(rayOriginTopLeft.position, Vector2.up, .2f, snowBallLayerMask);
         if (hitLeft.collider != null)
         {
             if (hitLeft.normal == Vector2.down)
@@ -186,7 +192,7 @@ public class Snowball : MonoBehaviour
             }
         }
 
-        RaycastHit2D hitRight = Physics2D.Raycast(rayOriginTopRight.position, Vector2.up,.2f, snowBallLayerMask);
+        RaycastHit2D hitRight = Physics2D.Raycast(rayOriginTopRight.position, Vector2.up, .2f, snowBallLayerMask);
         if (hitRight.collider != null)
         {
             if (hitRight.normal == Vector2.down)
@@ -217,5 +223,16 @@ public class Snowball : MonoBehaviour
             Debug.DrawRay(rayOriginTopRight.position, Vector2.up * .2f, Color.red);
         }
 
+    }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
+
+    public void DestroySnowBalls()
+    {
+        CheckTop(destroy: true);
+        Destroy(gameObject);
     }
 }
