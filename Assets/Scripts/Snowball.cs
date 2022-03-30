@@ -72,6 +72,7 @@ public class Snowball : MonoBehaviour
         {
             if (leftRay)
             {
+
                 GameManager.instance.snowBallCount++;
 
                 hitLeft.collider.gameObject.GetComponent<Snowball>().CheckTop(destroy);
@@ -233,6 +234,7 @@ public class Snowball : MonoBehaviour
     public void DestroySnowBalls()
     {
         CheckTop(destroy: true);
+        GameManager.instance.snowBallCount = 0;
         Destroy(gameObject);
     }
 }

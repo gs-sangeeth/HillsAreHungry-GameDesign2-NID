@@ -33,8 +33,9 @@ public class DialogueBox : MonoBehaviour
             {
                 if(GameManager.instance.snowBallCount >= demand)
                 {
-                    print(demand);
                     GameManager.instance.DestroySnowBalls(demand);
+                    DialogueBoxSpawner.instance.StartTimer();
+                    Destroy(gameObject);
                 }
             }
         }

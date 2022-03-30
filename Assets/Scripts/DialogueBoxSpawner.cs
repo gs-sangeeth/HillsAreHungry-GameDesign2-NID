@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class DialogueBoxSpawner : MonoBehaviour
 {
+    public static DialogueBoxSpawner instance;
+
     public GameObject dialogueBox;
 
-    GameObject db;
+    private GameObject db;
     public float minInterval = 3f;
     public float maxInterval = 15f;
     float timer;
@@ -12,16 +14,27 @@ public class DialogueBoxSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
         timer = Random.Range(minInterval, maxInterval);
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
-        if(timer <= 0 && db == null)
+        if (db == null)
         {
-            db = Instantiate(dialogueBox,transform.position,Quaternion.identity);
+            timer -= Time.deltaTime;
         }
+        if (timer <= 0 && db == null)
+        {
+            Debug.Log("Spawnnn!!");
+            db = Instantiate(dialogueBox, transform.position, Quaternion.identity);
+            timer = Random.Range(minInterval, maxInterval);
+        }
+    }
+
+    public void StartTimer()
+    {
+        timer = Random.Range(minInterval, maxInterval);
     }
 }
