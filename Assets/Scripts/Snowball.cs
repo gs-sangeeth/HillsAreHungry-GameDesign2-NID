@@ -45,32 +45,26 @@ public class Snowball : MonoBehaviour
         RaycastHit2D hitLeft = Physics2D.Raycast(rayOriginTopLeft.position, Vector2.up, .2f, snowBallLayerMask);
         if (hitLeft.collider != null)
         {
-            if (hitLeft.collider.gameObject.CompareTag("Snow"))
+            if (hitLeft.normal == Vector2.down)
             {
-                if (hitLeft.distance <= .2f)
-                {
-                    leftRay = true;
-                }
-                else
-                {
-                    leftRay = false;
-                }
+                leftRay = true;
+            }
+            else
+            {
+                leftRay = false;
             }
         }
 
         RaycastHit2D hitRight = Physics2D.Raycast(rayOriginTopRight.position, Vector2.up, .2f, snowBallLayerMask);
         if (hitRight.collider != null)
         {
-            if (hitRight.collider.gameObject.CompareTag("Snow"))
+            if (hitRight.normal == Vector2.down)
             {
-                if (hitRight.distance <= .1f)
-                {
-                    rightRay = true;
-                }
-                else
-                {
-                    rightRay = false;
-                }
+                rightRay = true;
+            }
+            else
+            {
+                rightRay = false;
             }
         }
 
@@ -115,7 +109,6 @@ public class Snowball : MonoBehaviour
 
     private void CheckBottom()
     {
-        //RaycastHit2D hit = Physics2D.Raycast(coll.points[5], Vector2.up);
         bool leftRay = false;
         bool rightRay = false;
 
@@ -123,32 +116,26 @@ public class Snowball : MonoBehaviour
         RaycastHit2D hitLeft = Physics2D.Raycast(rayOriginBottomLeft.position, Vector2.down,.2f, playerLayerMask);
         if (hitLeft.collider != null)
         {
-            if (hitLeft.collider.gameObject.CompareTag("Player") && hitLeft.collider != coll)
+            if (hitLeft.normal == Vector2.up)
             {
-                if (hitLeft.distance <= .1f)
-                {
-                    leftRay = true;
-                }
-                else
-                {
-                    leftRay = false;
-                }
+                leftRay = true;
+            }
+            else
+            {
+                leftRay = false;
             }
         }
 
         RaycastHit2D hitRight = Physics2D.Raycast(rayOriginBottomRight.position, Vector2.down,.2f, playerLayerMask);
         if (hitRight.collider != null)
         {
-            if (hitRight.collider.gameObject.CompareTag("Player") && hitRight.collider != coll)
+            if (hitRight.normal == Vector2.up)
             {
-                if (hitRight.distance <= .1f)
-                {
-                    rightRay = true;
-                }
-                else
-                {
-                    rightRay = false;
-                }
+                rightRay = true;
+            }
+            else
+            {
+                rightRay = false;
             }
         }
 
@@ -182,7 +169,6 @@ public class Snowball : MonoBehaviour
 
     public void CheckTopTest()
     {
-        //RaycastHit2D hit = Physics2D.Raycast(coll.points[5], Vector2.up);
         bool leftRay = false;
         bool rightRay = false;
 
@@ -190,53 +176,28 @@ public class Snowball : MonoBehaviour
         RaycastHit2D hitLeft = Physics2D.Raycast(rayOriginTopLeft.position, Vector2.up,.2f, snowBallLayerMask);
         if (hitLeft.collider != null)
         {
-            if (hitLeft.collider.gameObject.CompareTag("Snow"))
+            if (hitLeft.normal == Vector2.down)
             {
-                if (hitLeft.distance <= .2f)
-                {
-                    leftRay = true;
-                }
-                else
-                {
-                    leftRay = false;
-                }
+                leftRay = true;
+            }
+            else
+            {
+                leftRay = false;
             }
         }
 
         RaycastHit2D hitRight = Physics2D.Raycast(rayOriginTopRight.position, Vector2.up,.2f, snowBallLayerMask);
         if (hitRight.collider != null)
         {
-            if (hitRight.collider.gameObject.CompareTag("Snow"))
+            if (hitRight.normal == Vector2.down)
             {
-                if (hitRight.distance <= .1f)
-                {
-                    rightRay = true;
-                }
-                else
-                {
-                    rightRay = false;
-                }
+                rightRay = true;
+            }
+            else
+            {
+                rightRay = false;
             }
         }
-
-        //if (leftRay || rightRay)
-        //{
-        //    if (leftRay)
-        //    {
-        //        SnowBallCounter.instance.snowBallCount++;
-        //        Debug.Log(SnowBallCounter.instance.snowBallCount);
-
-        //        hitLeft.collider.gameObject.GetComponent<Snowball>().CheckTop();
-        //    }
-        //    else if (rightRay)
-        //    {
-        //        SnowBallCounter.instance.snowBallCount++;
-        //        Debug.Log(SnowBallCounter.instance.snowBallCount);
-
-        //        hitRight.collider.gameObject.GetComponent<Snowball>().CheckTop();
-        //    }
-        //}
-
 
         if (leftRay)
         {

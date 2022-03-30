@@ -56,12 +56,6 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = Vector3.one;
         }
-
-        //if (playerHead.OverlapCollider != null)
-        //{
-
-        //}
-
     }
 
 
