@@ -23,11 +23,16 @@ public class DialogueBox : MonoBehaviour
     [HideInInspector]
     public float percent;
 
+    public Sprite[] numbers;
+    public Image numberRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
         demand = Random.Range(2, 7);
-        text.text = demand.ToString();
+        //text.text = demand.ToString();
+
+        numberRenderer.sprite = numbers[demand - 2];
 
         timeToFulfill = demand * 6f;
 
