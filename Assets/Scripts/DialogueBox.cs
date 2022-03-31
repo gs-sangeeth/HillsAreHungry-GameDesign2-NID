@@ -20,7 +20,8 @@ public class DialogueBox : MonoBehaviour
 
     private float timeToFulfill;
     private float timer;
-    private float percent;
+    [HideInInspector]
+    public float percent;
 
     // Start is called before the first frame update
     void Start()
@@ -60,7 +61,7 @@ public class DialogueBox : MonoBehaviour
                 if (GameManager.instance.snowBallCount >= demand)
                 {
                     GameManager.instance.DestroySnowBalls(demand);
-                    DialogueBoxSpawner.instance.StartTimer();
+                    MountainBehaviour.instance.StartTimer();
                     Destroy(gameObject);
                     GameManager.instance.UpdateAllTimers();
                 }
@@ -73,7 +74,7 @@ public class DialogueBox : MonoBehaviour
         //    Debug.Log("GAME OVER");
         //}
 
-        Debug.Log(timer);
+        //Debug.Log(timer);
 
         if (timer <= timeToFulfill)
         {
