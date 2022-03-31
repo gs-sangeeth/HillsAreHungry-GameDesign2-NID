@@ -27,7 +27,6 @@ public class DialogueBoxSpawner : MonoBehaviour
         }
         if (timer <= 0 && db == null)
         {
-            Debug.Log("Spawnnn!!");
             db = Instantiate(dialogueBox, transform.position, Quaternion.identity);
             timer = Random.Range(minInterval, maxInterval);
         }
