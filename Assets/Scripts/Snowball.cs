@@ -27,7 +27,7 @@ public class Snowball : MonoBehaviour
     private void Update()
     {
         CheckBottom();
-        CheckTopTest();
+        //CheckTopTest();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -80,7 +80,7 @@ public class Snowball : MonoBehaviour
                 hitLeft.collider.gameObject.GetComponent<Snowball>().CheckTop(destroy);
                 if (destroy)
                 {
-                    Destroy(hitLeft.collider.gameObject);
+                    hitLeft.collider.gameObject.GetComponent<Snowball>().Destroy();
                 }
             }
             else if (rightRay)
@@ -90,29 +90,29 @@ public class Snowball : MonoBehaviour
                 hitRight.collider.gameObject.GetComponent<Snowball>().CheckTop(destroy);
                 if (destroy)
                 {
-                    Destroy(hitRight.collider.gameObject);
+                    hitRight.collider.gameObject.GetComponent<Snowball>().Destroy();
                 }
             }
         }
 
 
-        if (leftRay)
-        {
-            Debug.DrawRay(rayOriginTopLeft.position, Vector2.up * .2f, Color.green);
-        }
-        else
-        {
-            Debug.DrawRay(rayOriginTopLeft.position, Vector2.up * .2f, Color.red);
-        }
+        //if (leftRay)
+        //{
+        //    Debug.DrawRay(rayOriginTopLeft.position, Vector2.up * .2f, Color.green);
+        //}
+        //else
+        //{
+        //    Debug.DrawRay(rayOriginTopLeft.position, Vector2.up * .2f, Color.red);
+        //}
 
-        if (rightRay)
-        {
-            Debug.DrawRay(rayOriginTopRight.position, Vector2.up * .2f, Color.green);
-        }
-        else
-        {
-            Debug.DrawRay(rayOriginTopRight.position, Vector2.up * .2f, Color.red);
-        }
+        //if (rightRay)
+        //{
+        //    Debug.DrawRay(rayOriginTopRight.position, Vector2.up * .2f, Color.green);
+        //}
+        //else
+        //{
+        //    Debug.DrawRay(rayOriginTopRight.position, Vector2.up * .2f, Color.red);
+        //}
 
     }
 
@@ -157,23 +157,23 @@ public class Snowball : MonoBehaviour
         }
 
 
-        if (leftRay)
-        {
-            Debug.DrawRay(rayOriginBottomLeft.position, Vector2.down * .2f, Color.green);
-        }
-        else
-        {
-            Debug.DrawRay(rayOriginBottomLeft.position, Vector2.down * .2f, Color.red);
-        }
+        //if (leftRay)
+        //{
+        //    Debug.DrawRay(rayOriginBottomLeft.position, Vector2.down * .2f, Color.green);
+        //}
+        //else
+        //{
+        //    Debug.DrawRay(rayOriginBottomLeft.position, Vector2.down * .2f, Color.red);
+        //}
 
-        if (rightRay)
-        {
-            Debug.DrawRay(rayOriginBottomRight.position, Vector2.down * .2f, Color.green);
-        }
-        else
-        {
-            Debug.DrawRay(rayOriginBottomRight.position, Vector2.down * .2f, Color.red);
-        }
+        //if (rightRay)
+        //{
+        //    Debug.DrawRay(rayOriginBottomRight.position, Vector2.down * .2f, Color.green);
+        //}
+        //else
+        //{
+        //    Debug.DrawRay(rayOriginBottomRight.position, Vector2.down * .2f, Color.red);
+        //}
     }
 
     public void CheckTopTest()
@@ -238,6 +238,6 @@ public class Snowball : MonoBehaviour
     {
         CheckTop(destroy: true);
         GameManager.instance.snowBallCount = 0;
-        Destroy(gameObject);
+        Destroy();
     }
 }
