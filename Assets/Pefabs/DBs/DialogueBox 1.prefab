@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 775533993066368235}
   - component: {fileID: 4733107116854383389}
   m_Layer: 5
-  m_Name: DialogueBox1
+  m_Name: DialogueBox 1
   m_TagString: DialogueBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &3154800332927454590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,6 +288,7 @@ MonoBehaviour:
   text: {fileID: 1213963914041776660}
   TimerImage: {fileID: 3154800334053300083}
   TimerImageEnd: {fileID: 3836166959342522790}
+  outlinedDB: {fileID: 1877596859549996506}
 --- !u!58 &4733107116854383389
 CircleCollider2D:
   m_ObjectHideFlags: 0

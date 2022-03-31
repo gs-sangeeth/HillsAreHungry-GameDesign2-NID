@@ -10,6 +10,7 @@ public class DialogueBox : MonoBehaviour
     public GameObject TimerImage;
     public Transform TimerImageEnd;
 
+    public GameObject outlinedDB;
 
     private Collider2D coll;
 
@@ -38,6 +39,15 @@ public class DialogueBox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GameManager.instance.snowBallCount >= demand)
+        {
+            outlinedDB.SetActive(true);
+        }
+        else
+        {
+            outlinedDB.SetActive(false);
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
 
