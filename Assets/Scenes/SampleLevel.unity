@@ -1430,7 +1430,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &821211130
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1646,7 +1646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b9033c4ac6903841b184bf6ad589d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueBox: {fileID: 3154800332927454589, guid: 387578f8fbc408b4b9254d554323d071, type: 3}
+  dialogueBox: {fileID: 3154800332927454589, guid: 7b0f345097ed78548b7210bec5861d18, type: 3}
   minInterval: 2
   maxInterval: 7
 --- !u!1 &855867536
@@ -1774,7 +1774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b9033c4ac6903841b184bf6ad589d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueBox: {fileID: 3154800332927454589, guid: 387578f8fbc408b4b9254d554323d071, type: 3}
+  dialogueBox: {fileID: 3154800332927454589, guid: a9ddf2f6ecf5c584fbc126edaae5904b, type: 3}
   minInterval: 2
   maxInterval: 7
 --- !u!1 &997226848
