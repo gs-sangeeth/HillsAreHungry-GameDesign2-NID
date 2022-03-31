@@ -8,6 +8,7 @@ TagManager:
   - LeftMoveButton
   - RightMoveButton
   - Snow
+  - DialogueBox
   layers:
   - Default
   - TransparentFX

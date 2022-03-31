@@ -17,6 +17,8 @@ public class Snowball : MonoBehaviour
     [SerializeField]
     LayerMask playerLayerMask;
 
+    public GameObject snowBallDestroyEffect;
+
     private void Start()
     {
         coll = gameObject.GetComponent<PolygonCollider2D>();
@@ -32,7 +34,7 @@ public class Snowball : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            Destroy(gameObject, .1f);
+            Destroy();
         }
     }
 
@@ -226,9 +228,10 @@ public class Snowball : MonoBehaviour
 
     }
 
-    public void Destroy()
+    public void Destroy(float timeDelay = 0)
     {
-        Destroy(gameObject);
+        Instantiate(snowBallDestroyEffect, transform.position, transform.rotation);
+        Destroy(gameObject, timeDelay);
     }
 
     public void DestroySnowBalls()

@@ -52,6 +52,7 @@ public class DialogueBox : MonoBehaviour
                     GameManager.instance.DestroySnowBalls(demand);
                     DialogueBoxSpawner.instance.StartTimer();
                     Destroy(gameObject);
+                    GameManager.instance.UpdateAllTimers();
                 }
             }
         }
@@ -73,6 +74,19 @@ public class DialogueBox : MonoBehaviour
         else
         {
             GameManager.instance.GameOver = true;
+        }
+    }
+
+    public void GiveMoreTime()
+    {
+        float newTime = (float)(timer - timer * .5);
+        if(newTime >= 0)
+        {
+            timer = newTime;
+        }
+        else
+        {
+            timer = 0;
         }
     }
 }

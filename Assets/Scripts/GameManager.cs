@@ -38,4 +38,13 @@ public class GameManager : MonoBehaviour
         bottomSnowBall.GetComponent<Snowball>().DestroySnowBalls();
     }
 
+    public void UpdateAllTimers()
+    {
+        GameObject[] dbs = GameObject.FindGameObjectsWithTag("DialogueBox");
+        foreach(GameObject db in dbs)
+        {
+            db.GetComponent<DialogueBox>().GiveMoreTime();
+        }
+    }
+
 }

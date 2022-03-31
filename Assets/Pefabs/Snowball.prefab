@@ -315,6 +315,7 @@ MonoBehaviour:
   playerLayerMask:
     serializedVersion: 2
     m_Bits: 128
+  snowBallDestroyEffect: {fileID: 2690951378590358910, guid: 3afa038b4dc5e7b478f2dec4b48b0b9d, type: 3}
 --- !u!1 &7376526970511331196
 GameObject:
   m_ObjectHideFlags: 0
