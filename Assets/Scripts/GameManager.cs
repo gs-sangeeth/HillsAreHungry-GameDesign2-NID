@@ -33,10 +33,16 @@ public class GameManager : MonoBehaviour
     public int totalSnowBallsEaten = 0;
 
     public GameObject pauseMenu;
+    public GameObject gameOverPopup;
+    private bool go = false;
+
+    public GameObject levelCompletePopup;
 
     void Start()
     {
         instance = this;
+        Time.timeScale = 1;
+
         slider.maxValue = requiredSnowBallCount;
     }
 
@@ -48,17 +54,34 @@ public class GameManager : MonoBehaviour
 
         if (GameOver)
         {
-            bgRenderer.sprite = bgs[1];
-            mountainRenderer.sprite = mountains[1];
-
+            if (!go)
+            {
+                bgRenderer.sprite = bgs[1];
+                mountainRenderer.sprite = mountains[1];
+            }
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
                 bgRenderer.sprite = bgs[2];
-                mountainRenderer.sprite = mountains[1];
-                Time.timeScale = 0;
-                gameOverText.SetActive(true);
+                mountainRenderer.sprite = mountains[2];
+
+                timer = 2f;
+
+                if (go)
+                {
+                    Time.timeScale = 0;
+                    //gameOverText.SetActive(true);
+                    gameOverPopup.SetActive(true);
+                }
+
+                go = true;
             }
+        }
+
+        if(totalSnowBallsEaten >= requiredSnowBallCount)
+        {
+            Time.timeScale = 0;
+            levelCompletePopup.SetActive(true);
         }
     }
 
@@ -92,7 +115,6 @@ public class GameManager : MonoBehaviour
     {
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
-        Time.timeScale = 1;
     }
 
 }
