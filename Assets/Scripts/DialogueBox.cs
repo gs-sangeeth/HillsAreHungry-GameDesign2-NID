@@ -67,6 +67,7 @@ public class DialogueBox : MonoBehaviour
                 {
                     GameManager.instance.DestroySnowBalls(demand);
                     MountainBehaviour.instance.StartTimer();
+                    GameManager.instance.totalSnowBallsEaten += demand;
                     Destroy(gameObject);
                     GameManager.instance.UpdateAllTimers();
                 }

@@ -25,14 +25,24 @@ public class GameManager : MonoBehaviour
     float timer = 1f;
     public GameObject gameOverText;
 
+    public int requiredSnowBallCount;
+    public Slider slider;
+
+    [HideInInspector]
+    public int totalSnowBallsEaten = 0;
+
     void Start()
     {
         instance = this;
+        slider.maxValue = requiredSnowBallCount;
     }
 
     private void Update()
     {
         snowBallCountText.text = snowBallCount.ToString();
+
+        slider.value = totalSnowBallsEaten;
+
         if (GameOver)
         {
             bgRenderer.sprite = bgs[1];
