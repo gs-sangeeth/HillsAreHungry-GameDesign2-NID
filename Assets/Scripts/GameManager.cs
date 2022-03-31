@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -30,6 +31,8 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public int totalSnowBallsEaten = 0;
+
+    public GameObject pauseMenu;
 
     void Start()
     {
@@ -71,6 +74,25 @@ public class GameManager : MonoBehaviour
         {
             db.GetComponent<DialogueBox>().GiveMoreTime();
         }
+    }
+
+    public void PauseGame()
+    {
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void ResumeGame()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    public void RestartGame()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+        Time.timeScale = 1;
     }
 
 }
