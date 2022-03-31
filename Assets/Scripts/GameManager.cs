@@ -13,9 +13,16 @@ public class GameManager : MonoBehaviour
 
     public Text snowBallCountText;
 
+    public SpriteRenderer bgRenderer;
+    public SpriteRenderer mountainRenderer;
+
+    public Sprite[] bgs;
+    public Sprite[] mountains;
+
     [HideInInspector]
     public bool GameOver = false;
 
+    float timer = 1f;
     public GameObject gameOverText;
 
     void Start()
@@ -28,8 +35,17 @@ public class GameManager : MonoBehaviour
         snowBallCountText.text = snowBallCount.ToString();
         if (GameOver)
         {
-            Time.timeScale = 0;
-            gameOverText.SetActive(true);
+            bgRenderer.sprite = bgs[1];
+            mountainRenderer.sprite = mountains[1];
+
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                bgRenderer.sprite = bgs[2];
+                mountainRenderer.sprite = mountains[1];
+                Time.timeScale = 0;
+                gameOverText.SetActive(true);
+            }
         }
     }
 
@@ -41,7 +57,7 @@ public class GameManager : MonoBehaviour
     public void UpdateAllTimers()
     {
         GameObject[] dbs = GameObject.FindGameObjectsWithTag("DialogueBox");
-        foreach(GameObject db in dbs)
+        foreach (GameObject db in dbs)
         {
             db.GetComponent<DialogueBox>().GiveMoreTime();
         }

@@ -55,9 +55,12 @@ TagManager:
   - name: Foreground
     uniqueID: 2838745729
     locked: 0
-  - name: Items
-    uniqueID: 3833277135
+  - name: Player
+    uniqueID: 4160726867
     locked: 0
   - name: Buttons
     uniqueID: 682234819
+    locked: 0
+  - name: Items
+    uniqueID: 3833277135
     locked: 0

@@ -19,9 +19,14 @@ public class Snowball : MonoBehaviour
 
     public GameObject snowBallDestroyEffect;
 
+    public Sprite[] snowBallSprites;
+    public SpriteRenderer snowBallRenderer;
+
     private void Start()
     {
         coll = gameObject.GetComponent<PolygonCollider2D>();
+
+        snowBallRenderer.sprite = snowBallSprites[Random.Range(0,snowBallSprites.Length - 1)];
     }
 
     private void Update()

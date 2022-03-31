@@ -228,7 +228,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -461690161
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 311973960f6f12247bccae89a3ac6c30, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -316,6 +316,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   snowBallDestroyEffect: {fileID: 2690951378590358910, guid: 3afa038b4dc5e7b478f2dec4b48b0b9d, type: 3}
+  snowBallSprites:
+  - {fileID: 21300000, guid: 390b46174211b9643bc2218ac76fdecd, type: 3}
+  - {fileID: 21300000, guid: 1d09b30d5f3c34d459fdf07ecfa2c924, type: 3}
+  - {fileID: 21300000, guid: 3a7c45ba28e73194388567a61a035156, type: 3}
+  snowBallRenderer: {fileID: 7159200390396810259}
 --- !u!1 &7376526970511331196
 GameObject:
   m_ObjectHideFlags: 0
