@@ -27,7 +27,7 @@ public class DialogueBox : MonoBehaviour
         demand = Random.Range(2, 7);
         text.text = demand.ToString();
 
-        timeToFulfill = demand * 3f;
+        timeToFulfill = demand * 6f;
 
         coll = gameObject.GetComponent<Collider2D>();
 
@@ -69,6 +69,10 @@ public class DialogueBox : MonoBehaviour
             timer += Time.deltaTime;
             percent = timer / timeToFulfill;
             TimerImage.transform.position = timerImageStartPos + differnce * percent;
+        }
+        else
+        {
+            GameManager.instance.GameOver = true;
         }
     }
 }

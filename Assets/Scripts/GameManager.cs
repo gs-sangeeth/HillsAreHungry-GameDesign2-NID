@@ -11,7 +11,12 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public GameObject bottomSnowBall;
 
-    public Text snowBallCountText; 
+    public Text snowBallCountText;
+
+    [HideInInspector]
+    public bool GameOver = false;
+
+    public GameObject gameOverText;
 
     void Start()
     {
@@ -21,6 +26,11 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         snowBallCountText.text = snowBallCount.ToString();
+        if (GameOver)
+        {
+            Time.timeScale = 0;
+            gameOverText.SetActive(true);
+        }
     }
 
     public void DestroySnowBalls(int count)
