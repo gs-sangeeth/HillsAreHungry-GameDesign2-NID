@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,4 +27,5 @@ public class GameManager : MonoBehaviour
     {
         bottomSnowBall.GetComponent<Snowball>().DestroySnowBalls();
     }
+
 }
