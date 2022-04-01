@@ -80,8 +80,13 @@ public class GameManager : MonoBehaviour
 
         if(totalSnowBallsEaten >= requiredSnowBallCount)
         {
-            Time.timeScale = 0;
-            levelCompletePopup.SetActive(true);
+
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                Time.timeScale = 0;
+                levelCompletePopup.SetActive(true);
+            }
         }
     }
 
