@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private BoxCollider2D playerHead;
 
+    public Animator playerAnimator;
+
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -46,6 +48,15 @@ public class PlayerController : MonoBehaviour
         input = Input.GetAxisRaw("Horizontal");
         //input = mobileInput;
         rb.AddForce(new Vector2(input * speed * Time.deltaTime * 10f, 0));
+
+        if (input != 0f)
+        {
+            playerAnimator.SetBool("isWalking", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("isWalking", false);
+        }
 
         // Flip
         if (input > 0)
