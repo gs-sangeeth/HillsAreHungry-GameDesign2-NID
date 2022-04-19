@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
         // Move
         input = Input.GetAxisRaw("Horizontal");
-        input = mobileInput;
+        //input = mobileInput;
         rb.AddForce(new Vector2(input * speed * Time.deltaTime * 10f, 0));
 
         if (input != 0f)
