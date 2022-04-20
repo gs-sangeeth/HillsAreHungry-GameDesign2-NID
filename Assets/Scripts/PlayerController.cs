@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
 
     public Animator playerAnimator;
 
+    [SerializeField]
+    LayerMask dbLayerMask;
+
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -67,7 +70,19 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = Vector3.one;
         }
+
+
+        RaycastHit2D hit = Physics2D.Raycast(playerHead.bounds.center, Vector2.up, 20f, dbLayerMask);
+        
+        if (hit.collider != null)
+        {
+            DialogueBox[] db =  hit.collider.gameObject.GetComponentsInChildren<DialogueBox>();
+            if(db.Length > 0)
+            {
+                db[0].FeedMountains();
+            } 
+        }
+
+        Debug.DrawRay(playerHead.bounds.center, Vector2.up * 15f, hit.collider == null ? Color.red : Color.green);
     }
-
-
 }

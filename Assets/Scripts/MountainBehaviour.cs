@@ -34,6 +34,7 @@ public class MountainBehaviour : MonoBehaviour
         if (timer <= 0 && db == null)
         {
             db = Instantiate(dialogueBox, transform.position, Quaternion.identity);
+            db.transform.SetParent(transform);
             timer = Random.Range(minInterval, maxInterval);
             expressionRenderer.sprite = expressions[1];
         }

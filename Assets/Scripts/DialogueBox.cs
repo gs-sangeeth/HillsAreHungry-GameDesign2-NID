@@ -63,14 +63,7 @@ public class DialogueBox : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
             if (hit.collider == coll)
             {
-                if (GameManager.instance.snowBallCount >= demand)
-                {
-                    GameManager.instance.DestroySnowBalls(demand);
-                    MountainBehaviour.instance.StartTimer();
-                    GameManager.instance.totalSnowBallsEaten += demand;
-                    Destroy(gameObject);
-                    GameManager.instance.UpdateAllTimers();
-                }
+                FeedMountains();
             }
         }
 
@@ -104,6 +97,18 @@ public class DialogueBox : MonoBehaviour
         else
         {
             timer = 0;
+        }
+    }
+
+    public void FeedMountains()
+    {
+        if (GameManager.instance.snowBallCount >= demand)
+        {
+            GameManager.instance.DestroySnowBalls(demand);
+            MountainBehaviour.instance.StartTimer();
+            GameManager.instance.totalSnowBallsEaten += demand;
+            Destroy(gameObject);
+            GameManager.instance.UpdateAllTimers();
         }
     }
 }

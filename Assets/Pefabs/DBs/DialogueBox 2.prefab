@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7404118342439132256}
   - component: {fileID: 4744375821843932234}
   - component: {fileID: 3919630437476823917}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: DBImage Outlined
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 945767511084056906}
   - component: {fileID: 6065821726704778811}
   - component: {fileID: 7380429511425511199}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 2298669101314229533}
   - component: {fileID: 2274949233135015411}
   - component: {fileID: 1213963914041776660}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 3154800332927454590}
   - component: {fileID: 775533993066368235}
   - component: {fileID: 4733107116854383389}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: DialogueBox 2
   m_TagString: DialogueBox
   m_Icon: {fileID: 0}
@@ -344,7 +344,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &3154800332927454590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 3154800333017659517}
   - component: {fileID: 3154800333017659516}
   - component: {fileID: 3154800333017659515}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: DBImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,7 +506,7 @@ GameObject:
   - component: {fileID: 3154800334053300084}
   - component: {fileID: 3154800334053300086}
   - component: {fileID: 3154800334053300085}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -581,7 +581,7 @@ GameObject:
   - component: {fileID: 3836166959342522790}
   - component: {fileID: 6425642780679265148}
   - component: {fileID: 5797089817424556912}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: EndPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
