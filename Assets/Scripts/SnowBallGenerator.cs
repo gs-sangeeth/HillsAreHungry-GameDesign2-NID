@@ -5,7 +5,11 @@ public class SnowBallGenerator : MonoBehaviour
 
     public float timeBetweenNewSnowBallFall = 5f;
     public GameObject snowBall;
-    
+    public GameObject meteor;
+
+    [Range(0f, 100f)]
+    public float meteorChance;
+
     private float timer;
 
     private void Start()
@@ -20,9 +24,19 @@ public class SnowBallGenerator : MonoBehaviour
         pos.z = 0;
 
         timer -= Time.deltaTime;
-        if(timer <= 0f)
+
+        int ran = Random.Range(1, 100);
+
+        if (timer <= 0f)
         {
-            Instantiate(snowBall, pos, Quaternion.identity);
+            if (ran < meteorChance)
+            {
+                Instantiate(meteor, pos, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(snowBall, pos, Quaternion.identity);
+            }
             timer = timeBetweenNewSnowBallFall;
         }
     }

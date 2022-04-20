@@ -83,6 +83,6 @@ public class PlayerController : MonoBehaviour
             } 
         }
 
-        Debug.DrawRay(playerHead.bounds.center, Vector2.up * 15f, hit.collider == null ? Color.red : Color.green);
+        //Debug.DrawRay(playerHead.bounds.center, Vector2.up * 15f, hit.collider == null ? Color.red : Color.green);
     }
 }

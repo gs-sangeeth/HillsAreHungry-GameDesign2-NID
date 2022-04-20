@@ -1790,6 +1790,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1071875311}
+  - {fileID: 912267507}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1959,6 +1960,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 912063097}
   m_CullTransparentMesh: 1
+--- !u!1 &912267506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 912267507}
+  - component: {fileID: 912267508}
+  m_Layer: 0
+  m_Name: MeteorGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &912267507
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912267506}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 6.08, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 899053297}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &912267508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912267506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46291d9f64d1a8b44b26b6b13f901e82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenNewSnowBallFall: 3
+  snowBall: {fileID: 7159200390396810284, guid: 7ce1dbc4b665d9146a2e379354b98cdb, type: 3}
+  meteor: {fileID: 1819662889489825596, guid: 2f3f056dd1ce03744bcfbbe03a3d14db, type: 3}
+  meteorChance: 88
 --- !u!1 &980787793
 GameObject:
   m_ObjectHideFlags: 0
@@ -2451,8 +2499,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46291d9f64d1a8b44b26b6b13f901e82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenNewSnowBallFall: 2
+  timeBetweenNewSnowBallFall: 1
   snowBall: {fileID: 7159200390396810284, guid: 7ce1dbc4b665d9146a2e379354b98cdb, type: 3}
+  meteor: {fileID: 1819662889489825596, guid: 2f3f056dd1ce03744bcfbbe03a3d14db, type: 3}
+  meteorChance: 20
 --- !u!4 &1071875311
 Transform:
   m_ObjectHideFlags: 0

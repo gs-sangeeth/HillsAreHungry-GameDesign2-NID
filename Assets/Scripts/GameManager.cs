@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if(totalSnowBallsEaten >= requiredSnowBallCount)
+        if (totalSnowBallsEaten >= requiredSnowBallCount)
         {
 
             timer -= Time.deltaTime;
@@ -90,9 +90,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void DestroySnowBalls(int count)
+    public void DestroySnowBalls(int count = 0)
     {
-        bottomSnowBall.GetComponent<Snowball>().DestroySnowBalls();
+        if (bottomSnowBall != null)
+        {
+            bottomSnowBall.GetComponent<Snowball>().DestroySnowBalls();
+        }
     }
 
     public void UpdateAllTimers()

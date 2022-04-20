@@ -26,7 +26,7 @@ public class Snowball : MonoBehaviour
     {
         coll = gameObject.GetComponent<PolygonCollider2D>();
 
-        snowBallRenderer.sprite = snowBallSprites[Random.Range(0,snowBallSprites.Length - 1)];
+        snowBallRenderer.sprite = snowBallSprites[Random.Range(0, snowBallSprites.Length - 1)];
     }
 
     private void Update()
@@ -82,20 +82,32 @@ public class Snowball : MonoBehaviour
 
                 GameManager.instance.snowBallCount++;
 
-                hitLeft.collider.gameObject.GetComponent<Snowball>().CheckTop(destroy);
-                if (destroy)
+                Snowball snowBall = hitLeft.collider.gameObject.GetComponent<Snowball>();
+
+
+                if (snowBall != null)
                 {
-                    hitLeft.collider.gameObject.GetComponent<Snowball>().Destroy();
+                    snowBall.CheckTop(destroy);
+                    if (destroy)
+                    {
+                        snowBall.Destroy();
+                    }
                 }
             }
             else if (rightRay)
             {
                 GameManager.instance.snowBallCount++;
 
-                hitRight.collider.gameObject.GetComponent<Snowball>().CheckTop(destroy);
-                if (destroy)
+                Snowball snowBall = hitRight.collider.gameObject.GetComponent<Snowball>();
+
+
+                if (snowBall != null)
                 {
-                    hitRight.collider.gameObject.GetComponent<Snowball>().Destroy();
+                    snowBall.CheckTop(destroy);
+                    if (destroy)
+                    {
+                        snowBall.Destroy();
+                    }
                 }
             }
         }
